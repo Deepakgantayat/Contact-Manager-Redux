@@ -9,28 +9,33 @@ import {startRemoveContact} from '../actions/contacts'
         props.dispatch(startRemoveContact(id))
      }
         return(
-            <div className="container mt-5">
+            <React.Fragment>
+                 <div className="container mt-5">
                 <br/>
                <h2> Listing All Contacts - {props.contacts.length}</h2>
                <br/>
-               <table className="table">
+               <table className="table table-striped">
                    <thead>
                        <tr>
                            <th scope="col">Name</th>
                            <th scope="col">Email</th>
                            <th scope="col">Phone</th>
                            <th scope="col">show</th>
+                           <th scope="col">Image</th>
                            <th scope="col">Action</th>
                        </tr>
                    </thead>
                    <tbody>
                        {
                            props.contacts.map((contact) =>{
-                              return (<tr key ={contact._id}>
+                              return (
+                             
+                              <tr key ={contact._id}>
                                    <td>{contact.name}</td>
                                    <td>{contact.email}</td>
                                    <td>{contact.phone}</td>
                                    <td><Link to = {`/contacts/${contact._id}`} className="btn btn-primary">show</Link></td>
+                                   <td><img src={`localhost:3099/${contact.picture}`} alt="" width="100" height="100" /></td>
                                    <td>
                                    <button className="btn btn-danger" onClick= {() =>{const confirmRemove = 
                                       
@@ -60,6 +65,8 @@ import {startRemoveContact} from '../actions/contacts'
                <Link to = "/contacts/new" className="btn btn-secondary">Add New Contact</Link>
 
             </div>
+            </React.Fragment>
+           
         )
     }
 

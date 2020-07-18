@@ -1,11 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import _ from 'lodash'
 
 class Account extends React.Component{
    
     render(){
         return(
-            <div class="card text-center">
+           <div>
+                {
+                !_.isEmpty(this.props.account) &&(
+                    <div class="card text-center">
+                
             <div class="card-header">
              ACCOUNT
             </div>
@@ -18,6 +23,11 @@ class Account extends React.Component{
             Contact Manager - Save All Your Contacts
             </div>
             </div>
+                    
+                )
+            }
+           </div>
+            
         )
     }
 }

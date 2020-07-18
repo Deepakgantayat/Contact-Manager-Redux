@@ -15,6 +15,10 @@ const contactSchema = new Schema({
         required: true,
         maxlength: 10
     },
+    picture:{
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now()
